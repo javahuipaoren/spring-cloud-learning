@@ -39,4 +39,9 @@ public class PaymentController8002 {
             return new CommonResult(200, "success, serverPort:" + serverPort, payment);
         }
     }
+
+    @GetMapping("/payment/lb")
+    public String paymentLb() {
+        return serverPort;
+    }
 }
