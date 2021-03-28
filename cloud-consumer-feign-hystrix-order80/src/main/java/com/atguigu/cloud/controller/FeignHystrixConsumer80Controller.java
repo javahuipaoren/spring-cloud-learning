@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@DefaultProperties(defaultFallback = "globalFallback")
+//@DefaultProperties(defaultFallback = "globalFallback")
 public class FeignHystrixConsumer80Controller {
 
     @Autowired
@@ -25,10 +25,10 @@ public class FeignHystrixConsumer80Controller {
     }
 
     @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-//    @HystrixCommand(fallbackMethod = "paymentInfoTimeoutFallbackMethod",commandProperties = {
-//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1500")
-//    })
-    @HystrixCommand
+    @HystrixCommand(fallbackMethod = "paymentInfoTimeoutFallbackMethod",commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1500")
+    })
+//    @HystrixCommand
     public String paymentInfo_Timeout(@PathVariable("id") Integer id){
         int i = 1 / 0 ;
         String result = paymentHystrixService.paymentInfoTimeout(id);
