@@ -19,7 +19,7 @@ public class FeignHystrixConsumer80Controller {
     private PaymentHystrixService paymentHystrixService;
 
     @GetMapping("/consumer/payment/hystrix/ok/{id}")
-    public String paymentInfo_OK(@PathVariable("id") Integer id){
+    public String paymentInfoOK(@PathVariable("id") Integer id){
         String result = paymentHystrixService.paymentInfoOK(id);
         return  result;
     }
@@ -29,7 +29,7 @@ public class FeignHystrixConsumer80Controller {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1500")
     })
 //    @HystrixCommand
-    public String paymentInfo_Timeout(@PathVariable("id") Integer id){
+    public String paymentInfoTimeout(@PathVariable("id") Integer id){
         int i = 1 / 0 ;
         String result = paymentHystrixService.paymentInfoTimeout(id);
         return  result;
