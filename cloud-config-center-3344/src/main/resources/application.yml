@@ -1,0 +1,24 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/javahuipaoren/springcloud-config.git
+#          uri: git@github.com:javahuipaoren/springcloud-config.git #ssh地址
+          #搜索目录
+          search-paths:
+            - springcloud-config
+          username: walkorc@yeah.net
+          password: 741852asdQWE
+      label: main
+
+eureka:
+  client:
+    service-url:
+      # 设置与eureka server交互的地址，查询服务和注册服务都需要依赖这个服务
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
