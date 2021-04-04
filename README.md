@@ -11,3 +11,4 @@
 | mysql | 8.0.20 |
 | nacos | 1.0.0 |
 | sentinel | 1.7.1 |
+| seata | 0.9.0 |

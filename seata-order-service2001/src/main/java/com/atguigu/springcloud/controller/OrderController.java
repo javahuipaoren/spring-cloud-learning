@@ -17,6 +17,7 @@ public class OrderController {
 
     @GetMapping("/order/create")
     public CommonResult createOrder(Order order) {
+        log.info("order controller, order:{}", order);
         orderService.saveOrder(order);
         return new CommonResult(200, "create order success");
     }

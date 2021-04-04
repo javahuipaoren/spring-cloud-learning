@@ -18,7 +18,7 @@ public class AccountController {
     private AccountService accountService;
 
     @RequestMapping("/account/decrease")
-    public CommonResult decrease(@RequestParam("usrId") Long userId, @RequestParam("money") BigDecimal money) {
+    public CommonResult decrease(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money) {
         log.info("account controller, userId:{}, money:{}", userId, money);
         accountService.decrease(userId, money);
         return new CommonResult(200, "账户扣减成功");
